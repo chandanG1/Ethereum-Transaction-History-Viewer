@@ -2,9 +2,9 @@
 {
   "name": "Ethereum Transaction History Viewer",
   "description": "A Streamlit-based Ethereum wallet transaction explorer built using Alchemy API, Google Colab, Python, and Streamlit UI.",
-  "author": "Your Name",
+  "author": "CHANDAN KUMAR",
   "language": "Python",
   "tags": ["ethereum", "explorer", "alchemy", "python", "streamlit"],
-  "github_url": "https://github.com/yourusername/yourrepo",
+  "github_url": "https://github.com/chandanG1/Ethereum-Transaction-History-Viewer",
   "demo_url": "https://your-demo-link.com"
 }
