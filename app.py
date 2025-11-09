@@ -148,7 +148,7 @@ if st.button("Fetch Data"):
                         gas_used = int(gas_used, 16)
             except Exception:
                 gas_used = None
-             tx["gas_used"] = gas_used
+            tx["gas_used"] = gas_used
 
             tx["nft_image"] = None
             if tx["is_nft"] and tx["contract_address"] and token_id:
