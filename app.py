@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 from datetime import datetime
 
 ALCHEMY_API_KEY = st.secrets.get("ALCHEMY_API_KEY", os.getenv("ALCHEMY_API_KEY", ""))
-NETWORK = st.secrets.get("NETWORK", os.getenv("NETWORK", "eth-sepolia")).strip()  
+NETWORK = st.secrets.get("NETWORK", os.getenv("NETWORK", "eth-mainnet")).strip()  
 
 if not ALCHEMY_API_KEY:
     st.error("Missing ALCHEMY_API_KEY. Add it in Streamlit Secrets.")
@@ -150,13 +150,13 @@ def normalize_transfers(txs):
         df = df.sort_values("timestamp", ascending=False)
     return df
 
-st.set_page_config(page_title="Ethereum Tx Viewer (Sepolia)", page_icon="🔍", layout="wide")
-st.title("Ethereum Transaction History Viewer (Sepolia)")
+st.set_page_config(page_title="Ethereum Tx Viewer ", page_icon="🔍", layout="wide")
+st.title("🔍 Ethereum Transaction History Viewer ")
 st.caption(f"Network: **{NETWORK}** • Data via Alchemy Transfers API")
 
-st.write("Try a Sepolia address with activity. Example (random test): `0x0000000000000000000000000000000000000000` (replace with a real active Sepolia address).")
+st.write("Try a mainnet address with activity.")
 
-address = st.text_input("Enter an Ethereum address (0x...) on Sepolia:", value="", placeholder="0x...")
+address = st.text_input("Enter an Ethereum address on mainnet:", value="", placeholder="0x...")
 
 colA, colB = st.columns([1, 3])
 with colA:
@@ -176,7 +176,7 @@ if fetch_clicked:
 
     df_raw = pd.DataFrame(txs)
     if df_raw.empty:
-        st.warning("No transfers found for this address on Sepolia.")
+        st.warning("No transfers found for this address on mainnet.")
         st.stop()
 
     df = normalize_transfers(txs)
@@ -207,7 +207,7 @@ if fetch_clicked:
         ax.grid(True, linestyle="--", alpha=0.3)
         st.pyplot(fig)
     else:
-        st.info("No non-zero native ETH movement detected on this address (Sepolia).")
+        st.info("No non-zero native ETH movement detected on this address .")
 
     tokens_df = df[df["token_symbol"].notna() & df["token_symbol"].astype(str).ne("")].copy()
     if not tokens_df.empty:
@@ -267,4 +267,4 @@ if fetch_clicked:
     export_df = df.copy()
     export_df["timestamp"] = export_df["timestamp"].astype(str)
     csv_bytes = export_df.to_csv(index=False).encode("utf-8")
-    st.download_button("Download CSV (friendly)", csv_bytes, "transactions_friendly.csv", mime="text/csv")
+    st.download_button("Download CSV ", csv_bytes, "transactions.csv", mime="text/csv")
