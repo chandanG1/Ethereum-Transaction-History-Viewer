@@ -154,7 +154,7 @@ if st.button("Fetch Data"):
             if tx["is_nft"] and tx["contract_address"] and token_id:
                 try:
                     nft_api = f"https://{NETWORK}.g.alchemy.com/v2/{ALCHEMY_API_KEY}/getNFTMetadata?contractAddress={tx['contract_address']}&tokenId={token_id}"
-                     r = requests.get(nft_api, timeout=8)
+                    r = requests.get(nft_api, timeout=8)
                     j = r.json() if r.status_code == 200 else {}
                     media = j.get("media") or []
                     if media and isinstance(media, list):
