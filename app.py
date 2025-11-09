@@ -1,12 +1,15 @@
 # Streamlit app.py (full file, simplified basic version)
 
 import streamlit as st
+ALCHEMY_API_KEY = st.secrets["ALCHEMY_API_KEY"]
+NETWORK = st.secrets.get("NETWORK", "eth-mainnet")
+
 import pandas as pd
 import requests
 import matplotlib.pyplot as plt
 from fpdf import FPDF
 
-ALCHEMY_API_KEY = "YOUR_KEY"
+ALCHEMY_API_KEY = "UN6bfx9n8Qu36afdw__3Q"
 NETWORK = "eth-sepolia"
 
 def get_transactions(address, page_key=None):
