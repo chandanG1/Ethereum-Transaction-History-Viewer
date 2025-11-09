@@ -6,5 +6,5 @@
   "language": "Python",
   "tags": ["ethereum", "explorer", "alchemy", "python", "streamlit"],
   "github_url": "https://github.com/chandanG1/Ethereum-Transaction-History-Viewer",
-  "demo_url": "https://your-demo-link.com"
+  "demo_url": "https://ethereum-transaction-history-viewer-sodtrwlqbwjpexe36xunnz.streamlit.app/"
 }
